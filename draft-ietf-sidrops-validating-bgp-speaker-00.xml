@@ -6,7 +6,6 @@
 		<!ENTITY RFC6480 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6480.xml">
 		<!ENTITY RFC7911 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7911.xml">
 		<!ENTITY RFC7947 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7947.xml">
-		<!ENTITY RFC8097 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8097.xml">
 		<!ENTITY RFC7606 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7606.xml">
 		<!ENTITY RFC5668 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5668.xml">
 		<!ENTITY RFC8174 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8174.xml">
@@ -98,7 +97,7 @@
 
 		<abstract>
 			<t>
-				This document defines a new BGP transitive extended community <xref target="RFC8097"/>,
+				This document defines a new BGP transitive extended community,
 		    	as well as its usage, to signal prefix origin validation results from
 		    	an RPKI Origin validating BGP speaker to other BGP peers.
 		    	Upon reception of prefix origin validation results, peers can use
@@ -322,7 +321,7 @@
 			</section>
 			<section anchor="error_handling" title="Error Handling at Peers">
 				<t>
-					IA route sent by a validating BGP speaker SHOULD only contain none or
+					A route sent by a validating BGP speaker SHOULD only contain none or
    					one EBGP Prefix Origin Validation State Extended Community.
 				</t>
 				<t>
@@ -395,7 +394,6 @@
    		&RFC2119;
    		&RFC6811;
    		&RFC7911;
-   		&RFC8097;
    		&RFC7606;
 		&RFC5668;
 		&RFC8174;
