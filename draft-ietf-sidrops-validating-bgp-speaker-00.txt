@@ -5,12 +5,12 @@
 Network Working Group                                            T. King
 Internet-Draft                                                C. Dietzel
 Intended status: Standards Track                                 D. Kopp
-Expires: April 4, 2018                                            DE-CIX
+Expires: August 5, 2018                                           DE-CIX
                                                          A. Lambrianidis
                                                                   AMS-IX
                                                               A. Fenioux
                                                                France-IX
-                                                            October 2017
+                                                       February 01, 2018
 
 
      Signaling Prefix Origin Validation Results from an RPKI Origin
@@ -48,19 +48,19 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 4, 2018.
+   This Internet-Draft will expire on August 5, 2018.
 
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 1]
+King, et al.             Expires August 5, 2018                 [Page 1]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
 Copyright Notice
 
-   Copyright (c) 2017 IETF Trust and the persons identified as the
+   Copyright (c) 2018 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 2]
+King, et al.             Expires August 5, 2018                 [Page 2]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
    Peers receiving a prefix origin validation result from the validating
@@ -165,9 +165,9 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 3]
+King, et al.             Expires August 5, 2018                 [Page 3]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
 3.  BGP Prefix Origin Validation State Utilized at Validating Peers
@@ -221,9 +221,9 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 4]
+King, et al.             Expires August 5, 2018                 [Page 4]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
 4.  Signaling Prefix Origin Validation Results from a Validating Peer to
@@ -277,9 +277,9 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 5]
+King, et al.             Expires August 5, 2018                 [Page 5]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
    Failure to do so would allow opportunistic peers to advertise routes
@@ -333,9 +333,9 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 6]
+King, et al.             Expires August 5, 2018                 [Page 6]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
    To facilitate trust and support with peers establishing appropriate
@@ -389,9 +389,9 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 7]
+King, et al.             Expires August 5, 2018                 [Page 7]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
 8.2.  Informative References
@@ -445,9 +445,9 @@ Authors' Addresses
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 8]
+King, et al.             Expires August 5, 2018                 [Page 8]
 
-Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
    Arnaud Fenioux
@@ -456,7 +456,7 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
    Paris  75017
    FR
 
-   Email: afenioux@franceix.net
+   Email: ietf@afenioux.fr
 
 
 
@@ -501,4 +501,4 @@ Internet-DrafSignaling Prefix Origin Validation Results fro October 2017
 
 
 
-King, et al.              Expires April 4, 2018                 [Page 9]
+King, et al.             Expires August 5, 2018                 [Page 9]
