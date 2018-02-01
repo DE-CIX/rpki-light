@@ -1,6 +1,6 @@
-
-
-
+#
+# This is an old and archived version
+#
 
 Network Working Group                                            T. King
 Internet-Draft                                                   D. Kopp
