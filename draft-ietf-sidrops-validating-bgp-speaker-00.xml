@@ -23,7 +23,7 @@
 <?rfc tocindent="yes"?>
 <?rfc tocompact="yes"?>
 
-<rfc category="std" docName="draft-ietf-sidrops-validating-bgp-speaker-00">
+<rfc category="std" docName="draft-ietf-sidrops-validating-bgp-speaker-01">
 
 	<front>
 		<title>Signaling Prefix Origin Validation Results from an RPKI Origin Validating BGP Speaker to BGP Peers</title>
@@ -41,7 +41,7 @@
 			</address>
 		</author>
 
-		<author fullname="Christoph" initials="C." surname="Dietzel">
+		<author fullname="Christoph Dietzel" initials="C." surname="Dietzel">
 			<organization abbrev="DE-CIX">DE-CIX Management GmbH</organization>
 			<address>
 				<postal>
@@ -50,7 +50,7 @@
 					<code>50825</code>
 					<country>DE</country>
 				</postal>
-				<email>christhoph.dietzel@de-cix.net</email>
+				<email>christoph.dietzel@de-cix.net</email>
 			</address>
 		</author>
 
