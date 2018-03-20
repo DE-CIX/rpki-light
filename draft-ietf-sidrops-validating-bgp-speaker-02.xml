@@ -194,14 +194,14 @@
 		<section anchor="bgp_prefix_3" title="BGP Prefix Origin Validation State Utilized at Validating Peers">
 			<t>
 				A validating BGP speaker that is aware of a BGP Prefix Origin
-   				Validation state for a certain route can handle this information
-   				in one of the following modes of operation, attaching validation
-				information to routes as discussed in <xref target="signal_prefix_4"/>:
+   				Validation state (see <xref target="signal_prefix_4"/>) for a certain 
+				route can handle this information in one of the following modes of operation, 
+				attaching validation state to routes as discussed in <xref target="ebgp_prefix_origin_2"/>:
 	 			<list style="hanging" hangIndent="4">
 		 		<t hangText="Simple Tagging:"> 
 		 			This mode of operation is similar to the traditional BGP
        				decision process. Moreover, the prefix origin validation state
-       				information is tagged accordingly as discussed in <xref target="ebgp_prefix_origin_2"/>.
+       				state is tagged accordingly.
 		 		<vspace />
 		 		</t>
 		 		<t hangText="Dropping and Tagging:"> 
@@ -210,8 +210,7 @@
        				validating BGP speaker. Based on the remaining set of routes,
        				the BGP best path selection algorithm is executed. The
        				prefix origin validation state of "not found" or "valid"
-       				(according to <xref target="RFC6811"/>) is tagged accordingly, 
-       				as discussed in <xref target="ebgp_prefix_origin_2"/>.
+       				(according to <xref target="RFC6811"/>) is tagged accordingly.
 		 			<vspace />
 		 		</t>
 		 		<t hangText="Strict Dropping and Tagging:"> 
@@ -220,7 +219,7 @@
 				are dropped by the validating BGP speaker.  Based on the remaining set of
        				routes, the BGP best path selection algorithm is executed.
        				The prefix origin validation state of "valid" is tagged to the advertised
-				route, as discussed in <xref target="ebgp_prefix_origin_2"/>.
+				route.
 		 		</t>
 	 			</list>
 			</t>

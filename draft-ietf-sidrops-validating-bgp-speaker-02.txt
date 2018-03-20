@@ -80,7 +80,7 @@ Table of Contents
    3.  BGP Prefix Origin Validation State Utilized at Validating
        Peers . . . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Signaling Prefix Origin Validation Results from a Validating
-       Peer to Peers . . . . . . . . . . . . . . . . . . . . . . . .   5
+       Peer to Peers . . . . . . . . . . . . . . . . . . . . . . . .   4
    5.  Operational Recommendations . . . . . . . . . . . . . . . . .   5
      5.1.  Local Routing Decision Process  . . . . . . . . . . . . .   5
      5.2.  Validating Peers Receiving the EBGP Prefix Origin
@@ -173,29 +173,27 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 3.  BGP Prefix Origin Validation State Utilized at Validating Peers
 
    A validating BGP speaker that is aware of a BGP Prefix Origin
-   Validation state for a certain route can handle this information in
-   one of the following modes of operation, attaching validation
-   information to routes as discussed in Section 4:
+   Validation state (see Section 4) for a certain route can handle this
+   information in one of the following modes of operation, attaching
+   validation state to routes as discussed in Section 2:
 
    Simple Tagging:  This mode of operation is similar to the traditional
        BGP decision process.  Moreover, the prefix origin validation
-       state information is tagged accordingly as discussed in
-       Section 2.
+       state state is tagged accordingly.
 
    Dropping and Tagging:  Routes for which the prefix origin validation
        state is "invalid" (according to [RFC6811]) are dropped by the
        validating BGP speaker.  Based on the remaining set of routes,
        the BGP best path selection algorithm is executed.  The prefix
        origin validation state of "not found" or "valid" (according to
-       [RFC6811]) is tagged accordingly, as discussed in Section 2.
+       [RFC6811]) is tagged accordingly.
 
    Strict Dropping and Tagging:  Routes for which the prefix origin
        validation state is "invalid" or "not found" (according to
        [RFC6811]) are dropped by the validating BGP speaker.  Based on
        the remaining set of routes, the BGP best path selection
        algorithm is executed.  The prefix origin validation state of
-       "valid" is tagged to the advertised route, as discussed in
-       Section 2.
+       "valid" is tagged to the advertised route.
 
    A validating BGP speaker MUST support the Simple Tagging operation
    mode.  Other modes of operation are OPTIONAL.  The mode of operation
@@ -213,10 +211,12 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    itself, or with implementations who support sending the next best
    available path.
 
+4.  Signaling Prefix Origin Validation Results from a Validating Peer to
+    Peers
 
-
-
-
+   The EBGP Prefix Origin Validation State Community is utilized for
+   signaling prefix origin validation result from a validating BGP
+   speaker to other peers.
 
 
 
@@ -225,13 +225,6 @@ King, et al.             Expires August 12, 2018                [Page 4]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-4.  Signaling Prefix Origin Validation Results from a Validating Peer to
-    Peers
-
-   The EBGP Prefix Origin Validation State Community is utilized for
-   signaling prefix origin validation result from a validating BGP
-   speaker to other peers.
 
    This draft proposes an encoding of the prefix origin validation
    result [RFC6811] as follows:
@@ -275,17 +268,19 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    peers.  This is required regardless of whether the validating BGP
    speaker is executing prefix origin validation or not.
 
+   Failure to do so would allow opportunistic peers to advertise routes
+   tagged with arbitrary prefix origin validation results via validating
+   peers, influencing maliciously the decision process of other, non-
+   validating BGP speakers.
+
+
+
 
 
 King, et al.             Expires August 12, 2018                [Page 5]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-   Failure to do so would allow opportunistic peers to advertise routes
-   tagged with arbitrary prefix origin validation results via validating
-   peers, influencing maliciously the decision process of other, non-
-   validating BGP speakers.
 
 5.3.  Information about Validity of a BGP Prefix Origin Not Available at
       a Validating Peer
@@ -330,6 +325,11 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    filtering (e.g., IRR database filtering), and redistribution of BGP
    routing information to other peers.
 
+   To facilitate trust and support with peers establishing appropriate
+   controls in mitigating the risks mentioned above, AS operators SHOULD
+   provide out-of-band means for peers to ensure that the ROA validation
+   process has not been compromised or corrupted.
+
 
 
 
@@ -337,11 +337,6 @@ King, et al.             Expires August 12, 2018                [Page 6]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-   To facilitate trust and support with peers establishing appropriate
-   controls in mitigating the risks mentioned above, AS operators SHOULD
-   provide out-of-band means for peers to ensure that the ROA validation
-   process has not been compromised or corrupted.
 
    While being under DDoS attacks, it is a common practice for peers
    connected to other Autonomous Systems and make use of blackholing
@@ -387,17 +382,17 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
               Secure Internet Routing", RFC 6480, DOI 10.17487/RFC6480,
               February 2012, <https://www.rfc-editor.org/info/rfc6480>.
 
+   [RFC7947]  Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
+              "Internet Exchange BGP Route Server", RFC 7947,
+              DOI 10.17487/RFC7947, September 2016,
+              <https://www.rfc-editor.org/info/rfc7947>.
+
 
 
 King, et al.             Expires August 12, 2018                [Page 7]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-   [RFC7947]  Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
-              "Internet Exchange BGP Route Server", RFC 7947,
-              DOI 10.17487/RFC7947, September 2016,
-              <https://www.rfc-editor.org/info/rfc7947>.
 
 Authors' Addresses
 
@@ -437,19 +432,6 @@ Authors' Addresses
    Email: aristidis.lambrianidis@ams-ix.net
 
 
-
-
-
-
-
-
-
-
-King, et al.             Expires August 12, 2018                [Page 8]
-
-Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
-
-
    Arnaud Fenioux
    France-IX
    88 Avenue Des Ternes
@@ -463,42 +445,4 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-King, et al.             Expires August 12, 2018                [Page 9]
+King, et al.             Expires August 12, 2018                [Page 8]
