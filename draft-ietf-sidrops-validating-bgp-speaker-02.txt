@@ -80,7 +80,7 @@ Table of Contents
    3.  BGP Prefix Origin Validation State Utilized at Validating
        Peers . . . . . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Signaling Prefix Origin Validation Results from a Validating
-       Peer to Peers . . . . . . . . . . . . . . . . . . . . . . . .   5
+       Peer to Peers . . . . . . . . . . . . . . . . . . . . . . . .   4
    5.  Operational Recommendations . . . . . . . . . . . . . . . . .   5
      5.1.  Local Routing Decision Process  . . . . . . . . . . . . .   5
      5.2.  Validating Peers Receiving the EBGP Prefix Origin
@@ -92,7 +92,7 @@ Table of Contents
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .   7
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .   7
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
@@ -125,13 +125,13 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    octet AS Specific Extended Community [RFC5668] with the following
    encoding:
 
-     0                   1                   2                   3
-     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    |       0x02    |TBD1 (Sub-Type)|  Global Admininistrator       :
-    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    : Global Administrator (cont.)  |       validationstate         |
-    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  0                   1                   2                   3
+  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ |       0x02    |TBD1 (Sub-Type)|          Global Admininistrator             :
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ :        Global Administrator (cont.) |          validationstate                  |
+ +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
                                  Figure 1
 
@@ -141,9 +141,9 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    The Reserved field MUST be set to 0 and ignored upon receipt of this
    community.  The Global Administrator field MUST be set to the AS
    number of the validating BGP speaker conducting the prefix origin
-   validation.  The last octets of the extended community is an 
-   unsigned integer that gives the route's validation state as 
-   described in Section 4.
+   validation.  The last octets of the extended community is an unsigned
+   integer that gives the route's validation state as described in
+   Section 4.
 
    If the validating BGP speaker is configured to support the extensions
    defined in this document, it SHOULD attach the origin validation
@@ -179,46 +179,38 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    Simple Tagging:  The prefix origin validation state is tagged to the
        route as described in Section 2.
        This mode of operation is similar to the traditional BGP decision
-       process. Moreover, the prefix origin validation state information
-       is available for peers.
+       process.  Moreover, the prefix origin validation state
+       information is available for peers.
 
    Dropping and Tagging:  Routes for which the prefix origin validation
        state is "invalid" (according to [RFC6811]) are dropped by the
-       validating BGP speaker. Based on the remaining set of routes, 
-       the BGP best path selection algorithm is executed. Routes which 
-       show a prefix origin validation state of "not found" and "valid" 
-       (according to [RFC6811]) are tagged accordingly, as discussed 
-       in Section 4.
+       validating BGP speaker.  Based on the remaining set of routes,
+       the BGP best path selection algorithm is executed.  Routes which
+       show a prefix origin validation state of "not found" and "valid"
+       (according to [RFC6811]) are tagged accordingly, as discussed in
+       Section 4.
 
    Prioritizing and Tagging:  If the validating BGP speaker holds for a
-       particular prefix more than one routes, it removes the set of
-       "invalid" routes first and any "not found" routes.  Based on the 
-       remaining set of routes, the BGP best path selection algorithm 
-       is executed.  The selected route is marked according to 
-       Section 4.  
-   
+       particular prefix more than one route it removes the set of
+       "invalid" routes first and any "not found" routes.  Based on the
+       remaining set of routes, the BGP best path selection algorithm is
+       executed.  The selected route is marked according to Section 4.
+
    A validating BGP speaker MUST support the Simple Tagging operation
    mode.  Other modes of operation are OPTIONAL.  The mode of operation
    MAY be configured by the validating BGP speaker operator for all
    connected peers, or for each BGP session with a peer separately.
 
    Path hiding, as originally discussed in [RFC7947], may impact end-to-
-   end connectivity for peers receiving prefixes via validating BGP 
-   speakers, if the best path selected contains a prefix with an origin 
-   validation state which is subsequently dropped.
+   end connectivity for peers receiving prefixes via validating BGP
+   speakers, if the best path selected contains a prefix with a prefix
+   origin validation state which is subsequently dropped.
 
    However, these modes of operation might be used in combination with
-   any options discussed in Section 2.3.2 of [RFC7947] in order to 
-   allow a peer to receive one or more routes and take the routing 
-   decision by itself, or with implementations who support sending 
-   the next best available path.
-
-
-
-King, et al.             Expires August 12, 2018                [Page 4]
-
-Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
-
+   any options discussed in Section 2.3.2 of [RFC7947] in order to allow
+   a peer to receive one or more routes and take the routing decision by
+   itself, or with implementations who support sending the next best
+   available path.
 
 4.  Signaling Prefix Origin Validation Results from a Validating Peer to
     Peers
@@ -226,6 +218,13 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    The EBGP Prefix Origin Validation State Community is utilized for
    signaling prefix origin validation result from a validating BGP
    speaker to other peers.
+
+
+
+King, et al.             Expires August 12, 2018                [Page 4]
+
+Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
+
 
    This draft proposes an encoding of the prefix origin validation
    result [RFC6811] as follows:
@@ -269,17 +268,19 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    peers.  This is required regardless of whether the validating BGP
    speaker is executing prefix origin validation or not.
 
+   Failure to do so would allow opportunistic peers to advertise routes
+   tagged with arbitrary prefix origin validation results via validating
+   peers, influencing maliciously the decision process of other, non-
+   validating BGP speakers.
+
+
+
 
 
 King, et al.             Expires August 12, 2018                [Page 5]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-   Failure to do so would allow opportunistic peers to advertise routes
-   tagged with arbitrary prefix origin validation results via validating
-   peers, influencing maliciously the decision process of other, non-
-   validating BGP speakers.
 
 5.3.  Information about Validity of a BGP Prefix Origin Not Available at
       a Validating Peer
@@ -302,8 +303,8 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 6.  IANA Considerations
 
-   IANA is asked to assign a transitive Four-octet AS Specific Extended 
-   Community Sub-Type as defined in Section 5.2.4 of [RFC7153].
+   IANA is asked to assign a Transitive BGP Opaque Extended Community
+   Sub-Type as defined in Section 5.2.4 of [RFC7153].
 
 7.  Security Considerations
 
@@ -324,6 +325,11 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    filtering (e.g., IRR database filtering), and redistribution of BGP
    routing information to other peers.
 
+   To facilitate trust and support with peers establishing appropriate
+   controls in mitigating the risks mentioned above, AS operators SHOULD
+   provide out-of-band means for peers to ensure that the ROA validation
+   process has not been compromised or corrupted.
+
 
 
 
@@ -331,11 +337,6 @@ King, et al.             Expires August 12, 2018                [Page 6]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-   To facilitate trust and support with peers establishing appropriate
-   controls in mitigating the risks mentioned above, AS operators SHOULD
-   provide out-of-band means for peers to ensure that the ROA validation
-   process has not been compromised or corrupted.
 
    While being under DDoS attacks, it is a common practice for peers
    connected to other Autonomous Systems and make use of blackholing
@@ -371,10 +372,20 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
               RFC 7606, DOI 10.17487/RFC7606, August 2015,
               <https://www.rfc-editor.org/info/rfc7606>.
 
+   [RFC7911]  Walton, D., Retana, A., Chen, E., and J. Scudder,
+              "Advertisement of Multiple Paths in BGP", RFC 7911,
+              DOI 10.17487/RFC7911, July 2016,
+              <https://www.rfc-editor.org/info/rfc7911>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+8.2.  Informative References
+
+   [RFC6480]  Lepinski, M. and S. Kent, "An Infrastructure to Support
+              Secure Internet Routing", RFC 6480, DOI 10.17487/RFC6480,
+              February 2012, <https://www.rfc-editor.org/info/rfc6480>.
 
 
 
@@ -382,12 +393,6 @@ King, et al.             Expires August 12, 2018                [Page 7]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-8.2.  Informative References
-
-   [RFC6480]  Lepinski, M. and S. Kent, "An Infrastructure to Support
-              Secure Internet Routing", RFC 6480, DOI 10.17487/RFC6480,
-              February 2012, <https://www.rfc-editor.org/info/rfc6480>.
 
    [RFC7947]  Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
               "Internet Exchange BGP Route Server", RFC 7947,
@@ -430,6 +435,12 @@ Authors' Addresses
    NL
 
    Email: aristidis.lambrianidis@ams-ix.net
+
+
+
+
+
+
 
 
 
