@@ -128,7 +128,7 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
      0                   1                   2                   3
      0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-    |       0x02    |TBD1 (Sub-Type)|   Global Administrator        :
+    |       0x02    |TBD1 (Sub-Type)|     Global Administrator      :
     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     :  Global Administrator (cont.) |       Validation State        |
     +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -185,16 +185,16 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    Dropping and Tagging:  Routes for which the prefix origin validation
        state is "invalid" (according to [RFC6811]) are dropped by the
        validating BGP speaker.  Based on the remaining set of routes,
-       the BGP best path selection algorithm is executed.  Routes which
-       show a prefix origin validation state of "not found" and "valid"
-       (according to [RFC6811]) are tagged accordingly, as discussed in
-       Section 2.
+       the BGP best path selection algorithm is executed.  The prefix
+       origin validation state of "not found" or "valid" (according to
+       [RFC6811]) is tagged accordingly, as discussed in Section 2.
 
-   Strict Dropping and Tagging:  Route for which the prefix origin
+   Strict Dropping and Tagging:  Routes for which the prefix origin
        validation state is "invalid" or "not found" (according to
        [RFC6811]) are dropped by the validating BGP speaker.Based on the
        remaining set of routes, the BGP best path selection algorithm is
-       executed.  The selected route is marked according to Section 2.
+       executed.  The prefix origin validation state of "valid" is
+       tagged on the advertised route, as discussed in Section 2.
 
    A validating BGP speaker MUST support the Simple Tagging operation
    mode.  Other modes of operation are OPTIONAL.  The mode of operation

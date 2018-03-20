@@ -150,7 +150,7 @@
 <![CDATA[  0                   1                   2                   3
   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |       0x02    |TBD1 (Sub-Type)|   Global Administrator        :
+ |       0x02    |TBD1 (Sub-Type)|     Global Administrator      :
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
  :  Global Administrator (cont.) |       Validation State        |
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+]]>
@@ -210,18 +210,19 @@
 		 			Routes for which the prefix origin validation
        				state is "invalid" (according to <xref target="RFC6811"/>) are dropped by the
        				validating BGP speaker. Based on the remaining set of routes,
-       				the BGP best path selection algorithm is executed. Routes which
-       				show a prefix origin validation state of "not found" and "valid"
-       				(according to <xref target="RFC6811"/>) are tagged accordingly, 
+       				the BGP best path selection algorithm is executed. The
+       				prefix origin validation state of "not found" or "valid"
+       				(according to <xref target="RFC6811"/>) is tagged accordingly, 
        				as discussed in <xref target="ebgp_prefix_origin_2"/>.
 		 			<vspace />
 		 		</t>
 		 		<t hangText="Strict Dropping and Tagging:"> 
-		 			Route for which the prefix origin validation
+		 			Routes for which the prefix origin validation
 				state is "invalid" or "not found" (according to <xref target="RFC6811"/>)
 				are dropped by the validating BGP speaker.Based on the remaining set of
        				routes, the BGP best path selection algorithm is executed.
-       				The selected route is marked according to <xref target="ebgp_prefix_origin_2"/>.
+       				The prefix origin validation state of "valid" is tagged on the advertised
+				route, as discussed in <xref target="ebgp_prefix_origin_2"/>.
 		 		</t>
 	 			</list>
 			</t>
