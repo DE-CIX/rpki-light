@@ -177,9 +177,9 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    information in one of the following modes of operation, attaching
    validation state to routes as discussed in Section 2:
 
-   Simple Tagging:  This mode of operation is similar to the traditional
-       BGP decision process.  Moreover, the prefix origin validation
-       state state is tagged accordingly.
+   Simple Tagging:  In this mode of operation, the BGP best path
+       selection algorithm is executed.  The prefix origin validation
+       state is tagged accordingly.
 
    Dropping and Tagging:  Routes for which the prefix origin validation
        state is "invalid" (according to [RFC6811]) are dropped by the
