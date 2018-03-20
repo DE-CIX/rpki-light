@@ -125,13 +125,13 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
    octet AS Specific Extended Community [RFC5668] with the following
    encoding:
 
-  0                   1                   2                   3
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |       0x02    |TBD1 (Sub-Type)|          Global Admininistrator             :
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- :        Global Administrator (cont.) |          validationstate                  |
- +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+     0                   1                   2                   3
+     0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    |       0x02    |TBD1 (Sub-Type)|   Global Admininistrator      :
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+    :  Global Administrator (cont.) |           validationstate     |
+    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
                                  Figure 1
 
@@ -372,11 +372,6 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
               RFC 7606, DOI 10.17487/RFC7606, August 2015,
               <https://www.rfc-editor.org/info/rfc7606>.
 
-   [RFC7911]  Walton, D., Retana, A., Chen, E., and J. Scudder,
-              "Advertisement of Multiple Paths in BGP", RFC 7911,
-              DOI 10.17487/RFC7911, July 2016,
-              <https://www.rfc-editor.org/info/rfc7911>.
-
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -387,17 +382,17 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
               Secure Internet Routing", RFC 6480, DOI 10.17487/RFC6480,
               February 2012, <https://www.rfc-editor.org/info/rfc6480>.
 
+   [RFC7947]  Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
+              "Internet Exchange BGP Route Server", RFC 7947,
+              DOI 10.17487/RFC7947, September 2016,
+              <https://www.rfc-editor.org/info/rfc7947>.
+
 
 
 King, et al.             Expires August 12, 2018                [Page 7]
 
 Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
-
-   [RFC7947]  Jasinska, E., Hilliard, N., Raszuk, R., and N. Bakker,
-              "Internet Exchange BGP Route Server", RFC 7947,
-              DOI 10.17487/RFC7947, September 2016,
-              <https://www.rfc-editor.org/info/rfc7947>.
 
 Authors' Addresses
 
@@ -437,19 +432,6 @@ Authors' Addresses
    Email: aristidis.lambrianidis@ams-ix.net
 
 
-
-
-
-
-
-
-
-
-King, et al.             Expires August 12, 2018                [Page 8]
-
-Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
-
-
    Arnaud Fenioux
    France-IX
    88 Avenue Des Ternes
@@ -463,42 +445,4 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-King, et al.             Expires August 12, 2018                [Page 9]
+King, et al.             Expires August 12, 2018                [Page 8]

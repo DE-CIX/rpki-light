@@ -146,15 +146,15 @@
        		</t>
 
 		<figure anchor="table_example" align="center">
-			<artwork>
+<artwork>
 <![CDATA[  0                   1                   2                   3
   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- |       0x02    |TBD1 (Sub-Type)|          Global Admininistrator             :
+ |       0x02    |TBD1 (Sub-Type)|   Global Admininistrator      :
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- :        Global Administrator (cont.) |          validationstate                  |
+ :  Global Administrator (cont.) |           validationstate     |
  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+]]>
-			 </artwork>
+</artwork>
 		</figure>
 			
 			<t>
@@ -387,7 +387,6 @@
 		<references title="Normative References">
    		&RFC2119;
    		&RFC6811;
-   		&RFC7911;
    		&RFC7606;
 		&RFC5668;
 		&RFC8174;
