@@ -303,8 +303,8 @@ Internet-DraftSignaling Prefix Origin Validation Results frFebruary 2018
 
 6.  IANA Considerations
 
-   IANA is asked to assign a Transitive BGP Opaque Extended Community
-   Sub-Type as defined in Section 5.2.4 of [RFC7153].
+   IANA is asked to assign a transitive Four-octet AS Specific Extended
+   Community Sub-Type as defined in Section 5.2.4 of [RFC7153].
 
 7.  Security Considerations
 

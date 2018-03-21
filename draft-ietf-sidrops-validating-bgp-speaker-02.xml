@@ -328,7 +328,7 @@
 
 		<section anchor="iana" title="IANA Considerations">
 			<t>
-				IANA is asked to assign a Transitive BGP Opaque Extended Community
+				IANA is asked to assign a transitive Four-octet AS Specific Extended Community
 				Sub-Type as defined in Section 5.2.4 of <xref target="RFC7153"/>.
 			</t>
 			</section>
